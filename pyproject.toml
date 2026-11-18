@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mxray"
+version = "0.1.0"
+description = "Audit email domains: detect the mail provider and check MX, SPF, DKIM, DMARC and MTA-STS."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Jaime Díaz Fernández" }]
+keywords = ["email", "dns", "spf", "dkim", "dmarc", "deliverability", "security"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Communications :: Email",
+    "Topic :: Security",
+    "Environment :: Console",
+]
+dependencies = [
+    "dnspython>=2.4",
+    "typer>=0.12",
+    "rich>=13",
+]
+
+[project.optional-dependencies]
+api = ["fastapi>=0.110", "uvicorn>=0.29"]
+dev = ["pytest>=8", "ruff>=0.5", "httpx>=0.27", "fastapi>=0.110"]
+
+[project.scripts]
+mxray = "mxray.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mxray"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.flake8-bugbear]
+# FastAPI and Typer declare parameters through calls in defaults by design.
+extend-immutable-calls = ["fastapi.Depends", "typer.Argument", "typer.Option"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
