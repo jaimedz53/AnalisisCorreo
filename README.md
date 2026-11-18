@@ -1,6 +1,6 @@
 # mxray
 
-[![CI](https://github.com/YOUR_USER/mxray/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_USER/mxray/actions/workflows/ci.yml)
+[![CI](https://github.com/jaimedz53/AnalisisCorreo/actions/workflows/ci.yml/badge.svg)](https://github.com/jaimedz53/AnalisisCorreo/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -53,8 +53,8 @@ mail provider. This is a clean-room, open source rewrite.
 ## Installation
 
 ```bash
-pip install "git+https://github.com/YOUR_USER/mxray"          # CLI + library
-pip install "mxray[api] @ git+https://github.com/YOUR_USER/mxray"  # + REST API
+pip install "git+https://github.com/jaimedz53/AnalisisCorreo"          # CLI + library
+pip install "mxray[api] @ git+https://github.com/jaimedz53/AnalisisCorreo"  # + REST API
 ```
 
 ## Usage
